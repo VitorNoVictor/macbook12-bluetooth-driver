@@ -44,7 +44,7 @@ cd macbook12-bluetooth-driver/
 ./install.bluetooth.sh -u
 ```
 
-2. (backup method if dkms didn't work) **manually build and install module for current kernel**
+2. (backup method if dkms didn't work - DEPRECATED) **manually build and install module for current kernel**
 ```
 git clone https://github.com/leifliddy/macbook12-bluetooth-driver.git
 cd macbook12-bluetooth-driver/
@@ -54,3 +54,22 @@ reboot
 ```
 
 ```install.bluetooth.sh``` will auto-patch the ```hci_bcm.c``` source file and then compile and install the ```hci_uart``` module
+
+
+**Troubleshooting**
+-------------
+
+```
+$ blueman-manager
+blueman-manager 13.15.27 ERROR    Manager:147 on_dbus_name_appeared: Default adapter not found, trying first available.
+blueman-manager 13.15.27 ERROR    Manager:151 on_dbus_name_appeared: No adapter(s) found, exiting
+
+$ sudo ./install.bluetooth.sh -u
+$ reboot
+
+$ apt update && apt install blueman
+$ reboot
+
+$ sudo ./install.bluetooth.sh -i
+$ reboot
+```
