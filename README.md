@@ -60,6 +60,10 @@ reboot
 -------------
 
 ```
+# Uncomment the UserspaceHID=true
+vim /etc/bluetooth/input.conf
+reboot
+
 # Restart Bluetooth
 sudo service bluetooth restart
 
