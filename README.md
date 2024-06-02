@@ -60,16 +60,30 @@ reboot
 -------------
 
 ```
+# Restart Bluetooth
+sudo service bluetooth restart
+
+# Reload modules 
+sudo rmmod btusb
+sudo modprobe btusb
+
+# Unblock if needed
+sudo rfkill unblock bluetooth
+
+# Check bluetooth state
 $ blueman-manager
 blueman-manager 13.15.27 ERROR    Manager:147 on_dbus_name_appeared: Default adapter not found, trying first available.
 blueman-manager 13.15.27 ERROR    Manager:151 on_dbus_name_appeared: No adapter(s) found, exiting
 
+# Uninstall Macbook drivers
 $ sudo ./install.bluetooth.sh -u
 $ reboot
 
+# Update blueman
 $ apt update && apt install blueman
 $ reboot
 
+# Reinstall Macbook drivers
 $ sudo ./install.bluetooth.sh -i
 $ reboot
 ```
